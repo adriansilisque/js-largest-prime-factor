@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Largest Prime Factor Calculator</title>
+  <link rel="stylesheet" href="css/sgstyle.css" />    
+<script src="scripts/jquery-2.1.1.min.js"></script>        
+<script type="text/javascript" src="scripts/LPFCalculator.js"></script>        
+</head>
+
+<body>
+
+    
+    
+<div id="header">
+    <div id="header-icon"></div>
+</div>
+
+<div id="title">Little experiment - Largest Prime Factor Calculation</div>
+
+<div id="label">Enter a number to get its largest prime factor:</div>
+<input id="number" maxlength="17" style="width: 150px;" type="text" value=""></input>
+<div id="label">The largest prime factor is:<div id="result"></div></div>
+<script type="text/javascript">        
+    $('#number').keyup(function(){
+                var result, tbresult = $('#result') ;
+    var numText = $('#number').val();
+    var num = Math.abs(parseFloat(numText,10));//Valid for numbers less than 15 or 16 digits 
+    
+    if(numText != num.toString()){
+     tbresult.html("Error: Text is too large or not a valid number");
+    }
+    else{ 
+     result = largestPrimeFactor(num);
+     //result = ValidateResult(numText, result);
+     tbresult.html(result.toString()); 
+    }
+});
+    </script>
+
+</body>
+</html>
